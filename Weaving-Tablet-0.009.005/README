@@ -1,0 +1,48 @@
+Weaving-Tablet version 0.8.5
+
+Weaving::Tablet provides methods for editing tablet weaving patterns.
+
+Weaving::Tablet::Tk provides a GUI for mouse-based editing of these
+patterns.
+
+The pattern files are in a human readable (or at least comprehensible)
+format. 
+
+It's still somewhat crude and sluggish, but it works.
+
+INSTALLATION
+
+To install this module, run the following commands:
+
+	perl Makefile.PL
+	make
+	make test
+	make install
+
+SAMPLE USAGE
+
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+use Weaving::Tablet::Tk;
+use Tk;
+
+my $pattern = Weaving::Tablet::Tk->new_pattern(cards => 5, rows => 5);
+MainLoop;
+
+
+DEPENDENCIES
+
+Tk
+Tk::HList
+Tk::FileSelect
+Tk::FontDialog
+Tk::ColorEditor
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2009, Michael Houghton
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
