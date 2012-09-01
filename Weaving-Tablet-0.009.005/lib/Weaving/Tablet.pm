@@ -6,8 +6,7 @@ use Carp;
 use Moose;
 use Weaving::Tablet::Card;
 
-our $VERSION;
-use version; $VERSION = qv('0.9.4');
+our $VERSION = '0.009.006';
 
 has 'pattern_length' => (isa => 'Int', is => 'ro', default => 10);
 has 'number_of_holes' => (isa => 'Int', is => 'ro', default => 4, writer => '_set_number_of_holes');
@@ -633,7 +632,7 @@ Weaving::Tablet - Perl extension for manipulating tablet weaving patterns
 
 =head1 VERSION
 
-This document describes Weaving::Tablet version 0.9.0
+This document describes Weaving::Tablet version 0.9.6
 
 
 =head1 SYNOPSIS
@@ -965,7 +964,7 @@ Michael Houghton  C<< <herveus@cpan.org> >>
 
 =head1 LICENCE AND COPYRIGHT
 
-Copyright (c) 1999-2009, Michael Houghton C<< <herveus@cpan.org> >>. All rights reserved.
+Copyright (c) 1999-2012, Michael Houghton C<< <herveus@cpan.org> >>. All rights reserved.
 
 This module is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself. See L<perlartistic>.

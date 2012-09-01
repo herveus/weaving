@@ -1,6 +1,23 @@
 use strict;
 use warnings;
-use ExtUtils::MakeMaker;
+#use ExtUtils::MakeMaker;
+use inc::Module::Install;
+
+name 'Weaving-Tablet';
+all_from 'lib/Weaving/Tablet.pm';
+
+requires 'Tk' => 0;
+requires 'Tk::FontDialog' => 0;
+requires 'Data::Dumper' => 0;
+requires 'Moose' => 0;
+requires 'namespace::autoclean' => 0;
+test_requires 'Test::More' => 0;
+
+install_script 'snartemo.pl';
+
+WriteAll;
+
+__END__
 
 WriteMakefile(
     NAME                => 'Weaving::Tablet',

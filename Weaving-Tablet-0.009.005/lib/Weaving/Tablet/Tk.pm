@@ -1869,11 +1869,11 @@ sub insert_card_dlog
                 my $after_card =
                     $d_info->{where} eq 'bottom'  ? 0
                   : $d_info->{where} eq 'current' ? $d_info->{where_card}
-                  :                                 $self->number_of_cards;
+                  :                                 $self->pattern->number_of_cards;
                 if (
                     $d_info->{where} eq 'current'
                     and (  $after_card < 0
-                        or $after_card > $self->number_of_cards )
+                        or $after_card > $self->pattern->number_of_cards )
                   )
                 {
                     $d->Dialog( -text =>
@@ -1903,11 +1903,11 @@ sub insert_card_dlog
                 my $after_card =
                     $d_info->{where} eq 'bottom'  ? 0
                   : $d_info->{where} eq 'current' ? $d_info->{where_card}
-                  :                                 $self->number_of_cards;
+                  :                                 $self->pattern->number_of_cards;
                 if (
                     $d_info->{where} eq 'current'
                     and (  $after_card < 0
-                        or $after_card > $self->number_of_cards )
+                        or $after_card > $self->pattern->number_of_cards )
                   )
                 {
                     $d->Dialog( -text =>
@@ -2199,11 +2199,11 @@ sub delete_card_dlog
                 my $after_card =
                     $d_info->{where} eq 'bottom'  ? 1
                   : $d_info->{where} eq 'current' ? $d_info->{where_card}
-                  :                                 $self->number_of_cards;
+                  :                                 $self->pattern->number_of_cards;
                 if (
                     $d_info->{where} eq 'current'
                     and (  $after_card < 0
-                        or $after_card > $self->number_of_cards )
+                        or $after_card > $self->pattern->number_of_cards )
                   )
                 {
                     $d->Dialog( -text =>
@@ -2213,10 +2213,10 @@ sub delete_card_dlog
                 }
                 print "delete_card($after_card-1)\n";
                 $self->canvas->delete(
-                    "card" . ( $self->number_of_cards - 1 ) );
-                $self->delete_card( $after_card - 1 );
-                $self->current_card( $self->number_of_cards - 1 )
-                  if $self->current_card >= $self->number_of_cards;
+                    "card" . ( $self->pattern->number_of_cards - 1 ) );
+                $self->pattern->delete_card( $after_card - 1 );
+                $self->current_card( $self->pattern->number_of_cards - 1 )
+                  if $self->current_card >= $self->pattern->number_of_cards;
                 $self->draw_pattern;
                 $d->withdraw;
             },
@@ -2301,10 +2301,10 @@ sub duplicate_card_dlog
                 my $from_card =
                     $d_info->{from} eq 'bottom'  ? 1
                   : $d_info->{from} eq 'current' ? $d_info->{from_card}
-                  :                                $self->number_of_cards;
+                  :                                $self->pattern->number_of_cards;
                 if ( $d_info->{from} eq 'current'
                     and
-                    ( $from_card < 0 or $from_card > $self->number_of_cards ) )
+                    ( $from_card < 0 or $from_card > $self->pattern->number_of_cards ) )
                 {
                     $d->Dialog( -text =>
 '"From" card must be between 1 and the number of turns'
@@ -2314,11 +2314,11 @@ sub duplicate_card_dlog
                 my $after_card =
                     $d_info->{after} eq 'bottom'  ? 0
                   : $d_info->{after} eq 'current' ? $d_info->{after_card}
-                  :                                 $self->number_of_cards;
+                  :                                 $self->pattern->number_of_cards;
                 if (
                     $d_info->{after} eq 'current'
                     and (  $after_card < 0
-                        or $after_card > $self->number_of_cards )
+                        or $after_card > $self->pattern->number_of_cards )
                   )
                 {
                     $d->Dialog( -text =>
@@ -2338,10 +2338,10 @@ sub duplicate_card_dlog
                 my $from_card =
                     $d_info->{from} eq 'bottom'  ? 1
                   : $d_info->{from} eq 'current' ? $d_info->{from_card}
-                  :                                $self->number_of_cards;
+                  :                                $self->pattern->number_of_cards;
                 if ( $d_info->{from} eq 'current'
                     and
-                    ( $from_card < 0 or $from_card > $self->number_of_cards ) )
+                    ( $from_card < 0 or $from_card > $self->pattern->number_of_cards ) )
                 {
                     $d->Dialog( -text =>
 '"From" card must be between 1 and the number of turns'
@@ -2351,11 +2351,11 @@ sub duplicate_card_dlog
                 my $after_card =
                     $d_info->{after} eq 'bottom'  ? 0
                   : $d_info->{after} eq 'current' ? $d_info->{after_card}
-                  :                                 $self->number_of_cards;
+                  :                                 $self->pattern->number_of_cards;
                 if (
                     $d_info->{after} eq 'current'
                     and (  $after_card < 0
-                        or $after_card > $self->number_of_cards )
+                        or $after_card > $self->pattern->number_of_cards )
                   )
                 {
                     $d->Dialog( -text =>
