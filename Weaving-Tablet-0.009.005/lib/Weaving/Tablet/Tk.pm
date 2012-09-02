@@ -1263,7 +1263,7 @@ sub _palette    # (frame, card_canvas, \current_hole, \threading, update)
             my $title = "Select new color to add to palette";
             my $color = $self->color_dlog->Show( -title => $title );
             return unless defined $color;
-            $self->color_table( undef, $color );
+            $self->pattern->color_table( undef, $color );
             $self->refresh_color_list($h);
         },
     )->pack(qw/-side top/);
@@ -1285,7 +1285,7 @@ sub _palette    # (frame, card_canvas, \current_hole, \threading, update)
             )->pack;
             return if $d->Show eq 'Cancel';
             return if $cname   eq '';
-            $self->color_table( undef, $cname );
+            $self->pattern->color_table( undef, $cname );
             $self->refresh_color_list($h);
         },
     )->pack(qw/-side top/);
@@ -1304,7 +1304,7 @@ sub _palette    # (frame, card_canvas, \current_hole, \threading, update)
                 -initialcolor => $self->color_table($s),
             );
             return unless defined $color;
-            $self->color_table( $s, $color );
+            $self->pattern->color_table( $s, $color );
             $h->itemConfigure( $s, 1, -text => $color );
             $self->update_pattern;
             $self->refresh_card_threading($card_canvas) if $update;
@@ -1327,7 +1327,7 @@ sub _palette    # (frame, card_canvas, \current_hole, \threading, update)
         -browsecmd => sub {
             $$threading[$$current_hole] = shift;
             $card_canvas->itemconfigure( "hole$$current_hole",
-                -fill => $self->color_table( $$threading[$$current_hole] ) );
+                -fill => $self->pattern->color_table( $$threading[$$current_hole] ) );
 
         },
     ) if $update eq 'new';
@@ -1364,7 +1364,7 @@ sub _palette    # (frame, card_canvas, \current_hole, \threading, update)
             print "change $old ($s at $y) to $new\n";
             return if $old eq $new;
             return if $new eq '';
-            $self->color_table( $s, $new );
+            $self->pattern->color_table( $s, $new );
             $h->itemConfigure( $s, 1, -text => $new );
             $self->update_pattern;
             $self->refresh_card_threading($card_canvas) if $update;
