@@ -1,5 +1,8 @@
 Revision history for Weaving-Tablet
 
+0.9.7  Mon Mar 9 2015
+	Fixed card_twist in Tablet.pm to return arrayref instead of list
+
 0.8.4  Thu Oct 15 15:57:54 2009
        Restructure files to modern layout.
        Fix list of dependencies.
