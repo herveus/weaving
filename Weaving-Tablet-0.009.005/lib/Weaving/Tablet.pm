@@ -6,7 +6,7 @@ use Carp;
 use Moose;
 use Weaving::Tablet::Card;
 
-our $VERSION = '0.009.006';
+our $VERSION = '0.009.007';
 
 has 'pattern_length' => (isa => 'Int', is => 'ro', default => 10);
 has 'number_of_holes' => (isa => 'Int', is => 'ro', default => 4, writer => '_set_number_of_holes');
@@ -582,7 +582,7 @@ sub card_twist
 	
 	return unless defined $card;
 	return unless ($card >= 0 and $card < $self->number_of_cards);
-	return @{$self->cards->[$card]->twist};
+	return $self->cards->[$card]->twist;
 }
 
 sub color
